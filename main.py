@@ -38,9 +38,6 @@ def calc_r(angle):
         t22 = a[1][0] * b[0][1] + a[1][1] * b[1][1]
         return [[t11, t12], [t21, t22]]
 
-    def calc_k0_n(k0, epsil_n):
-        return k0 * emath.sqrt(epsil_n)
-
     epsilons_all = [epsilon0]
     d_all = []
     for i in range(N):
@@ -59,9 +56,9 @@ def calc_r(angle):
 
     k_full = [k0]
     for i in range(N + 1):
-        k_full.append(calc_k0_n(k_full[i], epsilons_all[i + 1]))
+        k_full.append(k0 * emath.sqrt(epsilons_all[i+1]))
 
-    # print(k_full)
+    #print(k_full)
     kz_full = [k01z]
     for i in range(N + 1):
         kz_full.append(emath.sqrt(k_full[i + 1]**2 - k01x ** 2))
@@ -102,5 +99,5 @@ print(calc_r(30 * 2 * pi / 360))
 angles = np.linspace(0, pi / 2, 100)
 r_list = calc_r(angles)
 fig, ax = plt.subplots()
-ax.plot(angles, abs(r_list))
+ax.plot(angles, np.abs((r_list)**2))
 plt.show()
