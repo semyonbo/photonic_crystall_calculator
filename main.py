@@ -13,16 +13,16 @@ def calc_r(angle):
     epsilon0 = 1
 
     # 1 layer
-    epsilon1 = (1.45 + 1j * 2 * 10  (-4))  2
+    epsilon1 = (1.45 + 1j * 2 * 10**(-4))**2
     # 2 layer
-    epsilon2 = (2.08 + 1j * 2 * 10  (-4))  2
+    epsilon2 = (2.08 + 1j * 2 * 10**(-4))**2
     # last layer
-    epsilon3 = 1.5  2
+    epsilon3 = 1.5**2
 
-    d10 = 180 * 10  (-9)
-    d1 = 210 * 10  (-9)
-    d2 = 70 * 10  (-9)
-    d_last = 150 * 10  (-6)
+    d10 = 180 * 10**(-9)
+    d1 = 210 * 10**(-9)
+    d2 = 70 * 10**(-9)
+    d_last = 150 * 10**(-6)
 
     lamb = 600 * 10 * (-9)
 
@@ -64,7 +64,7 @@ def calc_r(angle):
     # print(k_full)
     kz_full = [k01z]
     for i in range(N + 1):
-        kz_full.append(emath.sqrt(k_full[i + 1]  2 - k01x ** 2))
+        kz_full.append(emath.sqrt(k_full[i + 1]**2 - k01x ** 2))
 
     # print(kz_full)
 
